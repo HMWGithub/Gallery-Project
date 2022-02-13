@@ -16,23 +16,25 @@ if(isset($_POST['submit'])){
     $session->login($user_found);
     redirect("index.php");
   } else {
-    $the_message = "Your password or username is incorrect";
+    $error = "Your password or username is incorrect";
   }
 } else {
-  $usernmame = NULL;
+  $username = NULL;
   $password = NULL;
+  $error = NULL;
 }
 
 ?>
 
 <div class="col-md-4 col-md-offset-3">
+  <h4 class="bg-danger"> <?php echo $error ?> </h4>
   <form action="" method="post">
     <div class="form-group">
       <label for="username">Username</label>
-      <input type="text" class="form-control" name="username">
+      <input type="text" class="form-control" name="username" value="<?php echo htmlentities($username); ?>">
     </div><div class="form-group">
       <label for="password">Password</label>
-      <input type="text" class="form-control" name="password">
+      <input type="password" class="form-control" name="password" value="<?php echo htmlentities($password); ?>">
     </div>
     <div class="form-group">
       <input type="submit" name="submit" value="Submit" class="btn btn-primary">
