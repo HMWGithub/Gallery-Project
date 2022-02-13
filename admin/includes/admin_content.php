@@ -8,13 +8,9 @@
       </h1>
         
       <?php
-        $user = new User;
-        $user->username = "xBraadz";
-        $user->password = "twitch";
-        $user->first_name = "Brad";
-        $user->last_name = "Pestell";
-
-        $user->create();
+        $user = User::find_user_by_id($_SESSION['user_id']);
+        $user->last_name = 'Max-Wilson';
+        $user->update();
       ?>
 
       <ol class="breadcrumb">
