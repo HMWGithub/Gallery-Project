@@ -3,14 +3,18 @@
   <div class="row">
     <div class="col-lg-12">
       <h1 class="page-header">
-        Blank Page
+        Admin
         <small>Subheading</small>
       </h1>
         
       <?php
-        $found_user = User::find_user_by_id(1);
+        $user = new User;
+        $user->username = "xBraadz";
+        $user->password = "twitch";
+        $user->first_name = "Brad";
+        $user->last_name = "Pestell";
 
-        echo $found_user->username . "<br>";
+        $user->create();
       ?>
 
       <ol class="breadcrumb">
