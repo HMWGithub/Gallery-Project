@@ -8,9 +8,11 @@
       </h1>
         
       <?php
-        $user = User::find_user_by_id($_SESSION['user_id']);
-        $user->last_name = 'Max-Wilson';
-        $user->update();
+        if ($user = User::find_user_by_id(7)){
+          $user->delete();
+        } else {
+          echo "No User Found";
+        }
       ?>
 
       <ol class="breadcrumb">
