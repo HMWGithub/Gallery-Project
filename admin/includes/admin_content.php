@@ -8,27 +8,13 @@
       </h1>
         
       <?php
-        // if ($user = User::find_user_by_id(7)){
-        //   $user->delete();
-        // } else {
-        //   echo "No User Found";
-        // }
-        // $user = new User();
+        $user = User::find_user_by_id(8);
+        $user->username = "sdoashfao";
+        $user->password = "2412341";
+        $user->first_name = "Henry";
+        $user->last_name = "Cavill";
 
-        // $user->username = "BRAD";
-        // $user->save();
-        // $user = User::find_user_by_id(7);
-        // $user->last_name = "Pestell";
-
-        // $user->update();
-
-        $user = new User();
-        $user->username = "ASCWNYC";
-        $user->password = "testinggg";
-        $user->first_name = "Alex";
-        $user->last_name = "Williams";
-
-        $user->create();
+        $user->update();
       ?>
 
       <ol class="breadcrumb">
