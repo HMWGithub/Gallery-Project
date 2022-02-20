@@ -8,11 +8,19 @@
       </h1>
         
       <?php
-        if ($user = User::find_user_by_id(7)){
-          $user->delete();
-        } else {
-          echo "No User Found";
-        }
+        // if ($user = User::find_user_by_id(7)){
+        //   $user->delete();
+        // } else {
+        //   echo "No User Found";
+        // }
+        // $user = new User();
+
+        // $user->username = "BRAD";
+        // $user->save();
+        $user = User::find_user_by_id(7);
+        $user->last_name = "Pestell";
+
+        $user->update();
       ?>
 
       <ol class="breadcrumb">
