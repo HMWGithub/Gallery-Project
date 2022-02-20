@@ -17,10 +17,18 @@
 
         // $user->username = "BRAD";
         // $user->save();
-        $user = User::find_user_by_id(7);
-        $user->last_name = "Pestell";
+        // $user = User::find_user_by_id(7);
+        // $user->last_name = "Pestell";
 
-        $user->update();
+        // $user->update();
+
+        $user = new User();
+        $user->username = "ASCWNYC";
+        $user->password = "testinggg";
+        $user->first_name = "Alex";
+        $user->last_name = "Williams";
+
+        $user->create();
       ?>
 
       <ol class="breadcrumb">
