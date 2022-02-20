@@ -75,13 +75,25 @@ class User {
     return $properties;
   }
 
+  protected function clean_properties(){
+    global $database;
+
+    $clean_properties = array();
+
+    foreach ($this->properties() as $key => $value) {
+      $clean_properties[$key] = $database->escape_string($value);
+    }
+
+    return $clean_properties;
+  }
+
   public function save(){
     return isset($this->id) ? $this->update() : $this->create();
   }
 
   public function create(){
     global $database;
-    $properties = $this->properties();
+    $properties = $this->clean_properties();
 
     $sql = "INSERT INTO " . self::$db_table . "(" . implode(",", array_keys($properties)) . ")";
     $sql .= "VALUES ('". implode("','", array_values($properties)) ."')";

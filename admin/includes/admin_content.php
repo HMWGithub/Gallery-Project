@@ -8,13 +8,13 @@
       </h1>
         
       <?php
-        $user = User::find_user_by_id(8);
-        $user->username = "sdoashfao";
-        $user->password = "2412341";
-        $user->first_name = "Henry";
-        $user->last_name = "Cavill";
+        $user = new User();
+        $user->username = "Lesson";
+        $user->password = "96";
+        $user->first_name = "Edwin";
+        $user->last_name = "Diaz";
 
-        $user->update();
+        $user->create();
       ?>
 
       <ol class="breadcrumb">
