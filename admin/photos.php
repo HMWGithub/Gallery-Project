@@ -1,4 +1,10 @@
 <?php include("includes/header.php"); ?>
+
+<?php if(!$session->is_signed_in()) {redirect("login.php");} ?>
+
+<?php
+  $photos = Photo::find_all();
+?>
 <!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <!-- Brand and toggle get grouped for better mobile display -->
@@ -18,14 +24,31 @@
           Photos
           <small>Subheading</small>
         </h1>
-        <ol class="breadcrumb">
-          <li>
-            <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
-          </li>
-          <li class="active">
-            <i class="fa fa-file"></i> Blank Page
-          </li>
-        </ol>
+        <div class="col-md-12">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>PHOTO</th>
+                <th>DESCRIPTION</th>
+                <th>TITLE</th>
+                <th>SIZE</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php foreach ($photos as $photo) { ?>
+                <tr>
+                  <td><?php echo $photo->id; ?></td> 
+                  <td><img src="<?php echo $photo->picture_path() ?>" style="max-width: 100px;"></img></td> 
+                  <td><?php echo $photo->description; ?></td> 
+                  <td><?php echo $photo->title; ?></td>
+                  <td><?php echo $photo->size; ?></td>
+                </tr>
+              <?php } ?>
+            </tbody>
+          </table>
+
+        </div>
       </div>
     </div>
   <!-- /.row -->
