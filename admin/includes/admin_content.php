@@ -8,11 +8,21 @@
       </h1>
         
       <?php
-        $users = User::find_all();
+        // $photos = Photo::find_all();
 
-        foreach ($users as $user){
-          echo $user->username . "<br/>";
-        }
+        // foreach ($photos as $photo){
+        //   echo $photo->title . "<br/>";
+        // }
+
+        // $photo = new Photo();
+        
+        // $photo->title = "Testing the Title";
+        // $photo->description = "Testing the Description";
+        // $photo->filename = "Testing the Filename";
+        // $photo->type = "Testing the Type";
+        // $photo->size = 1235;
+
+        // $photo->create();
       ?>
 
       <ol class="breadcrumb">
