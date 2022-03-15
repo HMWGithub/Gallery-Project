@@ -8,13 +8,11 @@
       </h1>
         
       <?php
-        $user = new User();
-        $user->username = "Lesson";
-        $user->password = "96";
-        $user->first_name = "Edwin";
-        $user->last_name = "Diaz";
+        $users = User::find_all();
 
-        $user->create();
+        foreach ($users as $user){
+          echo $user->username . "<br/>";
+        }
       ?>
 
       <ol class="breadcrumb">
