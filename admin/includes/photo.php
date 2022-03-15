@@ -25,7 +25,7 @@ class Photo extends Db_object{
     UPLOAD_ERR_EXTENSION    => "A PHP extension stopped the file upload."
   );
 
-  //This is passing $_FILES['upload_file'] as an argument
+  //This is passing $_FILES['file_upload'] as an argument
   public function set_file($file) {
     if (empty($file) || !$file || !is_array($file)){
       $this->errors[] = "There was no gile uploaded here";
@@ -39,6 +39,10 @@ class Photo extends Db_object{
       $this->type     = $file['type'];
       $this->size     = $file['size'];
     }
+  }
+
+  public function picture_path(){
+    return $this->upload_directory.DS.$this->filename;
   }
 
   public function save(){
