@@ -28,8 +28,8 @@
           <table class="table table-hover">
             <thead>
               <tr>
-                <th>ID</th>
                 <th>PHOTO</th>
+                <th>ID</th>
                 <th>DESCRIPTION</th>
                 <th>TITLE</th>
                 <th>SIZE</th>
@@ -38,8 +38,14 @@
             <tbody>
               <?php foreach ($photos as $photo) { ?>
                 <tr>
+                  <td><img src="<?php echo $photo->picture_path() ?>" style="max-width: 100px;"></img>
+                    <div class="pictures_link">
+                      <a href="delete_photo.php?id=<?php echo $photo->id; ?>">Delete</a>
+                      <a href="edit_photo.php?id=<?php echo $photo->id; ?>">Edit</a>
+                      <a href="view_photo.php?id=<?php echo $photo->id; ?>">View</a>
+                    </div>
+                  </td> 
                   <td><?php echo $photo->id; ?></td> 
-                  <td><img src="<?php echo $photo->picture_path() ?>" style="max-width: 100px;"></img></td> 
                   <td><?php echo $photo->description; ?></td> 
                   <td><?php echo $photo->title; ?></td>
                   <td><?php echo $photo->size; ?></td>
