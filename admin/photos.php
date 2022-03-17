@@ -38,7 +38,7 @@
             <tbody>
               <?php foreach ($photos as $photo) { ?>
                 <tr>
-                  <td><img src="<?php echo $photo->picture_path() ?>" style="max-height: 100px;"></img>
+                  <td><img class="admin-photo-thumbnail" src="<?php echo $photo->picture_path() ?>"></img>
                     <div class="pictures_link">
                       <a href="delete_photo.php?id=<?php echo $photo->id; ?>">Delete</a>
                       <a href="edit_photo.php?id=<?php echo $photo->id; ?>">Edit</a>
