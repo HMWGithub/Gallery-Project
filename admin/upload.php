@@ -6,11 +6,12 @@
 
 $message = "";
 
-if(isset($_POST['submit'])) {
+if(isset($_FILES['file'])) {
   $photo = new Photo();
   $photo->title = $_POST['title'];
   $photo->description = $_POST['description'];
-  $photo->set_file($_FILES['file_upload']);
+  $photo->set_file($_FILES['file']);
+  
   if($photo->save()){
     $message = "Photo uploaded Successfully";
   } else {
@@ -54,7 +55,7 @@ if(isset($_POST['submit'])) {
             </div>
 
             <div class="form-group">
-              <input type="file" name="file_upload">
+              <input type="file" name="file">
             </div>
 
             <div class="form-group">

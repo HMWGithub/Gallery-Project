@@ -13,10 +13,6 @@ class User extends Db_object {
   public $upload_directory = "images";
   public $image_placeholder = "https://via.placeholder.com/400x400&text=image";
 
-  public function picture_path(){
-    return $this->upload_directory.DS.$this->filename;
-  }
-  
   public function image_path_and_placeholder(){
     return empty($this->filename) ? $this->image_placeholder : $this->upload_directory.DS.$this->filename;
   }
@@ -34,6 +30,29 @@ class User extends Db_object {
     $the_result_array = self::find_by_query($sql);
 
     return !empty($the_result_array) ? array_shift($the_result_array) : false;
+  }
+
+  public function upload_photo(){
+    if (!empty($this->errors)) {
+      return false;
+    }
+    if (empty($this->filename) || empty($this->tmp_path)) {
+      $this->errors[] = "This file was not available";
+      return false;
+    }
+    $target_path = SITE_PATH . DS . 'admin' . DS . $this->upload_directory . DS . $this->filename;
+
+    if (file_exists($target_path)) {
+      $this->errors[] = "The file {$this->filename} already exists";
+      return false;
+    }
+    if (move_uploaded_file($this->tmp_path, $target_path)) {    
+      unset($this->tmp_path);
+      return true;
+    } else {
+      $this->errors[] = "The file directory probably does not have permission";
+      return false;
+    }
   }
 }
 ?>

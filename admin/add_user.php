@@ -4,7 +4,7 @@
 <?php
   $user = new User();
   
-  if(isset($_POST['create'])){
+  if(isset($_POST['submit'])){
     if($user){
       $user->username   = $_POST['username'];
       $user->password   = $_POST['password'];
@@ -14,6 +14,7 @@
       $user->set_file($_FILES['user_image']);
       $user->upload_photo();
       $user->save();
+      redirect("users.php");
     }
   }
 ?>
@@ -54,7 +55,7 @@
               <input type="text" name="last_name" class="form-control">
             </div>
             <div class="form-group">
-              <input type="submit" name="create" class="btn btn-primary pull-right">
+              <input type="submit" name="submit" class="btn btn-primary pull-right">
             </div>
           </div>
         </form>
