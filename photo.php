@@ -27,70 +27,70 @@
   $comments = Comment::find_comments($photo->id);
 ?>
 
-<div class="col-lg-8">
-  <!-- Image Title -->
-  <h1><?php echo $photo->title; ?></h1>
+<div class="row">
+  <div class="col-lg-12">
+    <!-- Image Title -->
+    <h1><?php echo $photo->title; ?></h1>
 
-  <!-- Image Author -->
-  <p class="lead">
-    by <a href="#">Start Bootstrap</a>
-  </p>
+    <!-- Image Author -->
+    <p class="lead">
+      by <a href="#">Harrison Max-Wilson</a>
+    </p>
 
-  <hr>
+    <hr>
 
-  <!-- Image Upload Date/Time -->
-  <p><span class="glyphicon glyphicon-time"></span> Posted on August 24, 2013 at 9:00 PM</p>
+    <!-- Image Upload Date/Time -->
+    <p><span class="glyphicon glyphicon-time"></span> Posted on August 24, 2013 at 9:00 PM</p>
 
-  <hr>
+    <hr>
 
-  <!-- Image Photo -->
-  <img class="img-responsive" src="\admin\<?php echo $photo->picture_path(); ?>" alt="">
+    <!-- Image Photo -->
+    <img class="img-responsive" src="<?php echo 'admin'. DS . $photo->picture_path(); ?>" alt="">
 
-  <hr>
+    <hr>
 
-  <!-- Image Description -->
-  <p class="lead"><?php echo $photo->description; ?></p>
+    <!-- Image Description -->
+    <p class="lead"><?php echo $photo->description; ?></p>
 
-  <hr>
+    <hr>
 
-  <!-- Leave a comment -->
-  <div class="well">
-    <h4>Leave a Comment:</h4>
-    <form role="form" method="post">
-      <div class="form-group">
-        <label for="author">Author</label>
-        <input type="text" name="author" class="form-control">
-      </div>
-      <div class="form-group">  
-        <label for="body">Comment</label>
-        <textarea name="body" class="form-control" rows="3"></textarea>
-      </div>
-      <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-    </form>
-  </div>
-
-  <hr>
-
-  <!-- Comments -->
-  <?php foreach($comments as $comment){?>
-    <div class="media">
-      <a class="pull-left" href="#">
-        <img class="media-object" src="https://via.placeholder.com/64x64&text=image" alt="">
-      </a>
-      <div class="media-body">
-        <h4 class="media-heading"><?php echo $comment->author; ?>
-          <small>August 25, 2014 at 9:30 PM</small>
-        </h4>
-        <?php echo $comment->body; ?>
-      </div>
+    <!-- Leave a comment -->
+    <div class="well">
+      <h4>Leave a Comment:</h4>
+      <form role="form" method="post">
+        <div class="form-group">
+          <label for="author">Author</label>
+          <input type="text" name="author" class="form-control">
+        </div>
+        <div class="form-group">  
+          <label for="body">Comment</label>
+          <textarea name="body" class="form-control" rows="3"></textarea>
+        </div>
+        <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+      </form>
     </div>
-  <?php } ?>
-  </div>
 
-  <!-- Navigation sidebar -->
-  <div class="col-md-4">
-    <?php include("includes/sidebar.php"); ?>
-  </div>
-</div>  
+    <hr>
 
+    <!-- Comments -->
+    <?php foreach($comments as $comment){?>
+      <div class="media">
+        <a class="pull-left" href="#">
+          <img class="media-object" src="https://via.placeholder.com/64x64&text=image" alt="">
+        </a>
+        <div class="media-body">
+          <h4 class="media-heading"><?php echo $comment->author; ?>
+            <small>August 25, 2014 at 9:30 PM</small>
+          </h4>
+          <?php echo $comment->body; ?>
+        </div>
+      </div>
+    <?php } ?>
+
+    <!-- Navigation sidebar -->
+    <!-- <div class="col-md-4"> -->
+      <?php //include("includes/sidebar.php"); ?>
+    <!-- </div> -->
+  </div>  
+</div>
 <?php include("includes/footer.php"); ?>
