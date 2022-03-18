@@ -1,9 +1,13 @@
 <?php include("includes/header.php"); ?>
-
 <?php if(!$session->is_signed_in()) {redirect("login.php");} ?>
 
 <?php
-  $photos = Photo::find_all();
+  if(empty($_GET['id'])){
+    redirect('photos.php');
+  }
+
+  $comments = Comment::find_comments($_GET['id']);
+  $photo = Photo::find_by_id($_GET['id']);
 ?>
 <!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -21,38 +25,30 @@
     <div class="row">
       <div class="col-lg-12">
         <h1 class="page-header">
-          Photos
-          <small>Subheading</small>
+          Comments
         </h1>
+
         <div class="col-md-12">
           <table class="table table-hover">
             <thead>
               <tr>
-                <th>PHOTO</th>
                 <th>ID</th>
-                <th>TITLE</th>
-                <th>DESCRIPTION</th>
-                <th>SIZE</th>
-                <th>COMMENTS</th>
+                <!-- <th>PHOTO</th> -->
+                <th>AUTHOR</th>
+                <th>COMMENT</th>
               </tr>
             </thead>
             <tbody>
-              <?php foreach ($photos as $photo) { ?>
+              <?php foreach ($comments as $comment) { ?>
                 <tr>
-                  <td><img class="admin-photo-thumbnail" src="<?php echo $photo->picture_path() ?>"></img>
+                  <td><?php echo $comment->id; ?></td>
+                  <!-- <td><img class="admin-photo-thumbnail" src="<?php echo $photo->picture_path() ?>"></img> -->
+                  <td><?php echo $comment->author; ?>
                     <div class="actions_links">
-                      <a href="delete_photo.php?id=<?php echo $photo->id; ?>">Delete</a>
-                      <a href="edit_photo.php?id=<?php echo $photo->id; ?>">Edit</a>
-                      <a href="../photo.php?id=<?php echo $photo->id; ?>">View</a>
+                      <a href="delete_comments_photo.php?id=<?php echo $comment->id; ?>">Delete</a>
                     </div>
-                  </td> 
-                  <td><?php echo $photo->id; ?></td> 
-                  <td><?php echo $photo->title; ?></td>
-                  <td><?php echo $photo->description; ?></td> 
-                  <td><?php echo $photo->size; ?></td>
-                  <td>
-                    <a href="comments_photo.php?id=<?php echo $photo->id; ?>">View comments (<?php echo count(Comment::find_comments($photo->id)); ?>)</a>
                   </td>
+                  <td><?php echo $comment->body; ?></td>
                 </tr>
               <?php } ?>
             </tbody>

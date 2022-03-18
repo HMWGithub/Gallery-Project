@@ -16,6 +16,8 @@
 
         $photo->save();
       }
+      
+      redirect('photos.php');
     }
   }
 
