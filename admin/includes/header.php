@@ -15,14 +15,16 @@
 
   <!-- Bootstrap Core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Custom Fonts -->
+  <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
   <!-- Custom CSS -->
   <link href="css/sb-admin.css" rel="stylesheet">
   <link href="css/summernote.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
-
-  <!-- Custom Fonts -->
-  <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
