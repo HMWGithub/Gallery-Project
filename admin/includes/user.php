@@ -3,7 +3,6 @@ class User extends Db_object {
   protected static $db_table = "users";
   protected static $db_table_fields = array('id', 'username', 'password', 'first_name', 'last_name', 'filename');
   
-  public $upload_directory = "images";
   public $id;
   public $username;
   public $password;
@@ -11,8 +10,9 @@ class User extends Db_object {
   public $last_name;
   public $filename;
   public $tmp_path;
+  public $upload_directory = "images";
   public $image_placeholder = "https://via.placeholder.com/400x400&text=image";
-  
+
   public function picture_path(){
     return $this->upload_directory.DS.$this->filename;
   }

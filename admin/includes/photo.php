@@ -19,33 +19,6 @@ class Photo extends Db_object{
     return $this->upload_directory.DS.$this->filename;
   }
 
-  public function save(){
-    if ($this->id) {
-      $this->update();
-    } else {
-      if (!empty($this->errors)){
-        return false;
-      } elseif (empty($this->filename) || empty($this->tmp_path)){
-        $this->errors[] = "The file was not available";
-        return false;
-      }
-      $target_path = SITE_PATH . DS . "admin" . DS . $this->upload_directory . DS . $this->filename;
-
-      if(file_exists($target_path)){
-        $this->errors[] = "The file {$this->filename} already exists";
-        return false;
-      }
-
-      if(move_uploaded_file($this->tmp_path, $target_path)){
-        unset($this->tmp_path);
-        return true;
-      } else {
-        $this->errors[] = "What the fuck happened?! Folder permissions must be buggered";
-        return false;
-      }
-    }
-  }
-
   public function delete_photo(){
     if($this->delete()){
       $target_path = SITE_PATH . DS . 'admin' . DS . $this->picture_path();

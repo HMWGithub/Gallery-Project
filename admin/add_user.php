@@ -10,9 +10,10 @@
       $user->password   = $_POST['password'];
       $user->first_name = $_POST['first_name'];
       $user->last_name  = $_POST['last_name'];
-
+      
       $user->set_file($_FILES['user_image']);
       $user->upload_photo();
+      $user->save();
     }
   }
 ?>
@@ -28,8 +29,7 @@
 
       <div class="col-lg-12">
         <h1 class="page-header">
-          Photos
-          <small>Subheading</small>
+          Add User
         </h1>
         <form action="" method="post" enctype="multipart/form-data">
           <div class="col-md-6 col-md-offset-3">
