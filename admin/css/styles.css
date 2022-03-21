@@ -43,3 +43,14 @@
   background-color: #ddd;
   padding: 10px;
 }
+
+
+/**** Homepage Pagination ***/
+.pager .active a {
+  background-color: darkgray;
+  color: gray;
+}
+.pager .active a:hover {
+  background-color: darkgray;
+  color: gray;
+}

@@ -13,4 +13,5 @@ require_once("user.php");
 require_once("photo.php");
 require_once("comment.php");
 
+  require_once(INCLUDES_PATH.DS."paginate.php");
 ?>
