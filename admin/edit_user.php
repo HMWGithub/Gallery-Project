@@ -1,4 +1,6 @@
 <?php include("includes/header.php"); ?>
+<?php include("includes/photo_library_modal.php"); ?>
+
 <?php if(!$session->is_signed_in()) {redirect("login.php");} ?>
 
 <?php
@@ -43,7 +45,7 @@
           <small>Subheading</small>
         </h1>
         <div class="col-md-6">
-          <img class="img-responsive" src="<?php echo $user->image_path_and_placeholder(); ?>" alt="">
+          <a href="#" data-toggle="modal" data-target="#photo-modal"><img class="img-responsive" src="<?php echo $user->image_path_and_placeholder(); ?>" alt=""></a>
         </div>
         <form action="" method="post" enctype="multipart/form-data">
           <div class="col-md-6">
@@ -68,7 +70,7 @@
               <input type="text" name="last_name" class="form-control" value="<?php echo $user->last_name; ?>">
             </div>
             <div class="form-group">
-              <a href="delete_user.php?id=<?php echo $user->id; ?>" class="btn btn-danger pull-left">Delete</a>
+              <a id="user-id" href="delete_user.php?id=<?php echo $user->id; ?>" class="btn btn-danger pull-left">Delete</a>
             </div>
             <div class="form-group">
               <input type="submit" name="update" class="btn btn-primary pull-right" value="Update">

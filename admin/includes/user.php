@@ -32,6 +32,23 @@ class User extends Db_object {
     return !empty($the_result_array) ? array_shift($the_result_array) : false;
   }
 
+  public function ajax_save_user_image($user_image, $user_id){
+    global $database;
+
+    $user_image = $database->escape_string($user_image);
+    $user_id = $database->escape_string($user_id);
+
+    $this->user_image = $user_image;
+    $this->id         = $user_id;
+
+    $sql = "UPDATE " . self::$db_table . " SET user_image = '{$this->user_iamge}' ";
+    $sql .= " WHERE id = {$this->id} ";
+
+    $update_image = $database->query($sql);
+
+    echo $this->image_path_and_placeholder();
+  }
+
   public function upload_photo(){
     if (!empty($this->errors)) {
       return false;
