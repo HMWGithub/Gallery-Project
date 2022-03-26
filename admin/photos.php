@@ -5,11 +5,11 @@
 <?php
   $page = !empty($_GET['page']) ? (int)$_GET['page'] : 1;
   $items_per_page = 5;
-  $items_total_count = Photo::count_all();
+  $items_total_count = count(User::find_by_id($_SESSION['user_id'])->photos());
   $paginate = new Paginate($page, $items_per_page, $items_total_count);
-
   
   $sql = "SELECT * FROM photos ";
+  $sql .= "WHERE user_id={$_SESSION['user_id']} ";
   $sql .= "LIMIT {$items_per_page} ";
   $sql .= "OFFSET {$paginate->offset()}";
 
