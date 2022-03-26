@@ -71,5 +71,15 @@ class User extends Db_object {
       return false;
     }
   }
+
+  public function delete_photo(){
+    if($this->delete()){
+      $target_path = SITE_PATH . DS . 'admin' . DS . $this->upload_directory . DS . $this->filename;
+    
+      return unlink($target_path) ? true : false;
+    } else {
+      return false;
+    }
+  }
 }
 ?>

@@ -49,3 +49,15 @@ $(document).ready(function(){
     height: 200
   });
 });
+
+  /*********** EDIT PHOTO SIDE BAR *************/
+  $(".info-box-header").click(function(){
+    $(".inside").slideToggle(); // can pass parameter fast for quicker slide
+    $("#toggle").toggleClass("glyphicon-menu-down glyphicon , glyphicon-menu-up glyphicon");
+  });
+
+
+  /*********** DELETE LINK CHECK *************/
+  $(".delete_link").click(function(){
+    return confirm("Are you sure you want to delete this?");
+  });

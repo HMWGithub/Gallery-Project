@@ -9,6 +9,7 @@
   $comment = Comment::find_by_id($_GET['id']);
   
   if($comment){
+    $session->message("The comment from '{$comment->author}' has been deleted");
     $comment->delete();
   }     
 

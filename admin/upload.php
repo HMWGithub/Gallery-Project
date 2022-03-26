@@ -9,7 +9,6 @@ $message = "";
 if(isset($_FILES['file'])) {
   $photo = new Photo();
   $photo->title = $_POST['title'];
-  $photo->description = $_POST['description'];
   $photo->set_file($_FILES['file']);
   
   if($photo->save()){
@@ -40,28 +39,32 @@ if(isset($_FILES['file'])) {
         <h1 class="page-header">
           Upload
         </h1>
-        <div class="col-md-6">
-          <?php echo$message; ?>
-          <form action="upload.php" method="post" enctype="multipart/form-data">
+        <div class="row">
+          <div class="col-md-6">
+            <?php echo$message; ?>
+            <form action="upload.php" method="post" enctype="multipart/form-data">
 
-            <div class="form-group">
-              <h4>Title</h4>
-              <input type="text" name="title" class="form-control">
-            </div>
+              <div class="form-group">
+                <h4>Title</h4>
+                <input type="text" name="title" class="form-control">
+              </div>
 
-            <div class="form-group">
-              <h4>Description</h4>
-              <input type="text" name="description" class="form-control">
-            </div>
+              <div class="form-group">
+                <input type="file" name="file">
+              </div>
 
-            <div class="form-group">
-              <input type="file" name="file">
-            </div>
-
-            <div class="form-group">
-              <input type="submit" name="submit">
-            </div>
-          </form>
+              <div class="form-group">
+                <input type="submit" name="submit">
+              </div>
+            </form>
+          </div>  
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <form action="upload.php" class="dropzone">
+              
+            </form>
+          </div>
         </div>
       </div>
     </div>

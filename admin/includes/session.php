@@ -3,8 +3,8 @@
   class Session {
     private $signed_in = false;
     public $user_id;
-    public $message;
     public $count;
+    public $message;
 
     function __construct(){
       session_start();
@@ -67,5 +67,6 @@
   }
 
   $session = new Session();
+  $message = $session->message();
 
 ?>

@@ -10,6 +10,7 @@
   
   if($comment){
     $comment->delete();
+    $session->message("The comment from '{$comment->author}' has been deleted");
     redirect("comments_photo.php?id={$comment->photo_id}");
   } else {
     redirect("comments_photo.php?id={$comment->photo_id}");

@@ -23,6 +23,8 @@
         <h1 class="page-header">
           Users
         </h1>
+        
+        <p class="bg-success"><?php echo $message; ?></p>
 
         <a href="add_user.php" class="btn btn-primary">Add User</a>
 
@@ -44,7 +46,7 @@
                   <td><img class="admin-user-thumbnail" src="<?php echo $user->image_path_and_placeholder(); ?>"></img></td> 
                   <td><?php echo $user->username; ?>
                     <div class="actions_links">
-                      <a href="delete_user.php?id=<?php echo $user->id; ?>">Delete</a>
+                      <a class="delete_link" href="delete_user.php?id=<?php echo $user->id; ?>">Delete</a>
                       <a href="edit_user.php?id=<?php echo $user->id; ?>">Edit</a>
                     </div>
                   </td>

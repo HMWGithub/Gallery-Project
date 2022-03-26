@@ -45,7 +45,7 @@
                   <!-- <td><img class="admin-photo-thumbnail" src="<?php echo $photo->picture_path() ?>"></img> -->
                   <td><?php echo $comment->author; ?>
                     <div class="actions_links">
-                      <a href="delete_comments_photo.php?id=<?php echo $comment->id; ?>">Delete</a>
+                      <a class="delete_link" href="delete_comments_photo.php?id=<?php echo $comment->id; ?>">Delete</a>
                     </div>
                   </td>
                   <td><?php echo $comment->body; ?></td>

@@ -22,6 +22,8 @@
   <!-- Custom CSS -->
   <link href="css/sb-admin.css" rel="stylesheet">
   <link href="css/summernote.min.css" rel="stylesheet">
+  <link href="css/dropzone.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
   <link href="css/styles.css" rel="stylesheet">
   
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>

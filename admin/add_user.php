@@ -14,6 +14,8 @@
       $user->set_file($_FILES['user_image']);
       $user->upload_photo();
       $user->save();
+      
+      $session->message("New user '{$user->username}' has been created");
       redirect("users.php");
     }
   }

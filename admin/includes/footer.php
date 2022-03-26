@@ -7,6 +7,10 @@
   <!-- Summernote -->
   <script src="js/summernote.min.js"></script>
   
+  <!-- Dropzone -->
+  <script src="js/dropzone.js"></script>
+  <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+  
   <script src="js/scripts.js"></script>
 
   <script type="text/javascript">

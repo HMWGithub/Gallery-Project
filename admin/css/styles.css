@@ -79,3 +79,8 @@
 #modal_sidebar {
   position: fixed !important;
 }
+
+/**** LOGIN PAGE ****/
+#login-form label{
+  color: #ffffff;
+}
